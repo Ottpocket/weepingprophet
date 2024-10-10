@@ -118,7 +118,7 @@ class CategoricalFeatureTransformer(BaseFeatureTransformer):
     cft.fit_transform(df['a']) 
     """
 
-    def __init__(self, threshhold=2):
+    def __init__(self, threshhold=0):
         super().__init__()
         self.threshhold = threshhold
         self.transform_dict = None
