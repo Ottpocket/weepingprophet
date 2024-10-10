@@ -177,9 +177,6 @@ class SeriesFactory:
 ####################################################################################################################
 #Helper functions
 ####################################################################################################################
-def get_series_interface(series):
-    return SeriesFactory.get_interface(series)
-
 def copy_dataframe(df):
     if isinstance(df, pd.DataFrame):
         return df.copy()
@@ -187,3 +184,9 @@ def copy_dataframe(df):
         return df.clone()
     elif isinstance(df, np.ndarray):
         return np.copy(df)
+        
+def get_series_interface(series):
+    return SeriesFactory.get_interface(series)
+
+def is_polars(df):
+    return (type(df) == pl.DataFrame) or (type(df) == pl.Series)
