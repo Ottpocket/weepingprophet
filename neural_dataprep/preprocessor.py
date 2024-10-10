@@ -2,6 +2,7 @@ from typing import List, Dict, Any
 from collections import defaultdict
 import pickle
 import os
+from feature_transformers import BaseFeatureTransformer
 
 class BasePreprocessor:
     """ 
