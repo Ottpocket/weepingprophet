@@ -3,7 +3,7 @@ from collections import defaultdict
 import pickle
 import os
 from weepingprophet.neural_dataprep.feature_transformers import BaseFeatureTransformer
-from weepingprophet.neural_dataprep.series_interface import copy_dataframe
+from weepingprophet.neural_dataprep.series_interface import copy_dataframe, is_polars
 
 class BasePreprocessor:
     """ 
@@ -52,15 +52,13 @@ class BasePreprocessor:
         
         results = copy_dataframe(df[list(self.transformer_dict.keys())])
         #polars data
-        if type(df) ==pl.dataframe.frame.DataFrame:
-            
+        if is_polars(df):
             return results.with_columns(
                 [
                     transformer.transform(results[col]).alias(col)
                     for col, transformer in self.transformer_dict.items()
                 ]
             )
-
         else:
             for col, transformer in self.transformer_dict.items():
                 print(col, transformer)
