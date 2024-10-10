@@ -1,8 +1,8 @@
 """
-
+dataframe agnostic transformers of columns 
 """
 from abc import ABC, abstractmethod
-from series_interface import SeriesFactory
+from weepingprophet.neural_dataprep.series_interface import SeriesFactory
 class BaseFeatureTransformer(ABC):
     """ 
     Base class for feature transformers that operate on a single column of a dataframe 
