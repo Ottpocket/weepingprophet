@@ -2,7 +2,8 @@ from typing import List, Dict, Any
 from collections import defaultdict
 import pickle
 import os
-from weepingprophet.neural_dataprep.feature_transformers import BaseFeatureTransformer, copy_dataframe
+from weepingprophet.neural_dataprep.feature_transformers import BaseFeatureTransformer
+from weepingprophet.neural_dataprep.series_interface import copy_dataframe
 
 class BasePreprocessor:
     """ 
