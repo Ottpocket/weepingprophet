@@ -1,2 +1,3 @@
 # weepingprophet
-General Ml Nonsense
+
+Stuff to help my neural networks.
