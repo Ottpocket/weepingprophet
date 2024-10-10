@@ -37,14 +37,14 @@ class BasePreprocessor:
         self.transformer_dict = {col: name_of_transformer_class.factory_method() for col in cols_to_transform}
         self.is_fitted = False
 
-    def fit(self, df: pd.DataFrame) -> 'BasePreprocessor':
+    def fit(self, df: 'DataFrame') -> 'BasePreprocessor':
         """Trains the preprocessors."""
         for col in self.transformer_dict.keys():
             self.transformer_dict[col].fit(df[col])
         self.is_fitted = True
         return self
 
-    def transform(self, df: pd.DataFrame) -> pd.DataFrame:
+    def transform(self, df: 'DataFrame') -> 'DataFrame':
         """Uses the preprocessor to transform data."""
         if not self.is_fitted:
             raise ValueError("Preprocessor must be fitted before transform.")
@@ -67,7 +67,7 @@ class BasePreprocessor:
 
             return results
         
-    def fit_transform(self, df: pd.DataFrame) -> pd.DataFrame:
+    def fit_transform(self, df: 'DataFrame') -> 'DataFrame':
         """Fits the preprocessor and transforms the data."""
         return self.fit(df).transform(df)
 
