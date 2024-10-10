@@ -4,10 +4,18 @@ Stuff to help my neural networks.
 
 #### To Use in Kaggle
 ```
-!pip install git+https://github.com/Ottpocket/weepingprophet.git
+#Clone this repo locally to kaggle notebook
+!git clone https://github.com/Ottpocket/weepingprophet.git
+```
+```
+#attach to system path then import
+import sys
+sys.path.append('weepingprophet')
 from neural_dataprep.preprocessor import BasePreprocessor
 from neural_dataprep.feature_transformers import StandardFeatureTransformer, CategoricalFeatureTransformer
-
+```
+```
+#Usage
 df = pd.DataFrame(
     {
         'a':[1,np.nan,3],
