@@ -174,6 +174,16 @@ class SeriesFactory:
             return NumpyInterface()
         else:
             raise ValueError("Unsupported series type. Must be pandas Series, polars Series, or numpy array.")
-
+####################################################################################################################
+#Helper functions
+####################################################################################################################
 def get_series_interface(series):
     return SeriesFactory.get_interface(series)
+
+def copy_dataframe(df):
+    if isinstance(df, pd.DataFrame):
+        return df.copy()
+    elif isinstance(df, pl.DataFrame):
+        return df.clone()
+    elif isinstance(df, np.ndarray):
+        return np.copy(df)
