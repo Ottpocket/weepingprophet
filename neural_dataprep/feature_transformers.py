@@ -104,15 +104,7 @@ class StandardFeatureTransformer(BaseFeatureTransformer):
 
 ##################################################################
 #Interface Helper functions
-##################################################################
-def copy_dataframe(df):
-    if isinstance(df, pd.DataFrame):
-        return df.copy()
-    elif isinstance(df, pl.DataFrame):
-        return df.clone()
-    elif isinstance(df, np.ndarray):
-        return np.copy(df)
-    
+################################################################## 
 class CategoricalFeatureTransformer(BaseFeatureTransformer):
     """ 
     Changes a categorical columns to integers 0,1,2,... 
