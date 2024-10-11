@@ -45,6 +45,14 @@ class BasePreprocessor:
         self.is_fitted = True
         return self
 
+    def get_encoding_sizes(self):
+        """ """
+        if not self.is_fitted:
+            raise ValueError("Preprocessor must be fitted before transform.")
+        try:
+            return [transformer.get_dictionary_size() for transformer in self.transformer_dict]
+            
+    
     def transform(self, df: 'DataFrame') -> 'DataFrame':
         """Uses the preprocessor to transform data."""
         if not self.is_fitted:
