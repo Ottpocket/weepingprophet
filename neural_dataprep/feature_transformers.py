@@ -122,7 +122,7 @@ class CategoricalFeatureTransformer(BaseFeatureTransformer):
         self.threshhold = threshhold
         self.transform_dict = None
 
-    def get_dictionary_size(sel):
+    def get_dictionary_size(self):
         return len(self.transform_dict.keys())+1
     
     def _fit_hook(self, series):
