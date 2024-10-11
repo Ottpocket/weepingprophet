@@ -117,12 +117,14 @@ class CategoricalFeatureTransformer(BaseFeatureTransformer):
     cft = CategoricalFeatureTransformer()
     cft.fit_transform(df['a']) 
     """
-
     def __init__(self, threshhold=0):
         super().__init__()
         self.threshhold = threshhold
         self.transform_dict = None
 
+    def get_dictionary_size(sel):
+        return len(self.transform_dict.keys())+1
+    
     def _fit_hook(self, series):
         vc = self.series_interface.value_counts(series) #returns a pandas dataframe
         col_name = [col for col in vc.columns if col != 'count'][0]
