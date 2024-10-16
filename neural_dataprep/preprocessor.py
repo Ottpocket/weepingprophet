@@ -51,6 +51,8 @@ class BasePreprocessor:
             raise ValueError("Preprocessor must be fitted before transform.")
         try:
             return [transformer.get_dictionary_size() for transformer in self.transformer_dict]
+        except e:
+            raise Exception('Got an exeption!')
             
     
     def transform(self, df: 'DataFrame') -> 'DataFrame':
